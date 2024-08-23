@@ -342,8 +342,7 @@ async def forecast_stock(request: StockRequest):
     X_standardized=pd.DataFrame(data=X_standardized,index=X_selected.index)
     
     # Drop the rows with missing values.
-
-X_standardized=X_standardized.diff().dropna()
+	X_standardized=X_standardized.diff().dropna()
     
     # Align target variable y with the index of standardized features
     y=y[y.index.isin(X_standardized.index)].copy()
